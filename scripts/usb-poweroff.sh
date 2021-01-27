@@ -15,6 +15,6 @@ fi
 
 logger -t usb-poweroff.sh Disable USB power now...
 
-echo 0 > sudo tee /sys/bus/usb/devices/${location}.${port}/authorized
+echo 0 | sudo tee /sys/bus/usb/devices/${location}.${port}/authorized
 sudo uhubctl -a off -l ${location} -p ${port}
 sudo udevadm trigger --action=remove /sys/bus/usb/devices/${location}.${port}/
