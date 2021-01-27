@@ -20,4 +20,5 @@ sudo uhubctl -a off -l ${location} -p ${port}
 sudo udevadm trigger --action=remove /sys/bus/usb/devices/${location}.${port}/
 
 # this is needed to work around bug in octoprint
-sudo service octoprint restart 
+sudo service octoprint stop 
+sudo service octoprint start 
